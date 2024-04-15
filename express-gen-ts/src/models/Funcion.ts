@@ -23,10 +23,10 @@ function new_(
     pelicula?: IPelicula,
     sala?: string,
     id?: number, // id last because usually set by db
-  ): IPelicula {
+  ): IFuncion {
     return {
       id: (id ?? -1),
-      pelicula: ({ id:, nombre:nombre, duracion:""} ?? { id:-1, nombre:"", duracion:""}),
+      pelicula: (pelicula ?? { id:-1, nombre:"", duracion:""}),
       sala: (sala ?? ""),
     };
   }
@@ -47,6 +47,6 @@ function isFuncion(arg: unknown): arg is IFuncion {
 // **** Export default **** //
 
 export default {
-  new: newFuncion,
+  new: new_,
   isFuncion,
 } as const;

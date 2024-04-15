@@ -3,7 +3,7 @@
 import jsonfile from 'jsonfile';
 
 import { IPelicula } from '@src/models/Pelicula';
-import 
+import { IFuncion } from "@src/models/Funcion";
 
 // **** Variables **** //
 

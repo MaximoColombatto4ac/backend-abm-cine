@@ -4,7 +4,7 @@
 
 
 export default {
-  Base: '/api',
+  Base: '/',
   Peliculas: {
     Base: '/peliculas',
     Get: '/',
@@ -12,7 +12,7 @@ export default {
     Add: '/',
     Update: '/:id',
     Delete: '/:id',
-    Funciones: {
+   Funciones: {
       Base: '/funciones',
       Get: '/',
       GetOne: '/:id',

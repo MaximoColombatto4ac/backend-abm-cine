@@ -1,7 +1,7 @@
 import HttpStatusCodes from '@src/constants/HttpStatusCodes';
 
-import PeliculaService from '@src/services/PeliculaService';
-import { IPelicula } from '@src/models/Pelicula';
+import FuncionService from '@src/services/FuncionService';
+import { IFuncion } from '@src/models/Funcion';
 import { IReq, IRes } from './types/express/misc';
 
 
@@ -11,25 +11,25 @@ import { IReq, IRes } from './types/express/misc';
  * Get all películas.
  */
 async function getAll(_: IReq, res: IRes) {
-  const peliculas = await PeliculaService.getAll();
-  return res.status(HttpStatusCodes.OK).json(peliculas);
+  const funciones = await FuncionService.getAll();
+  return res.status(HttpStatusCodes.OK).json( funciones );
 }
 
 /**
  * Add one película.
  */
-async function add(req: IReq<{ pelicula: IPelicula }>, res: IRes) {
-  const { pelicula } = req.body;
-  await PeliculaService.addOne(pelicula);
+async function add(req: IReq<{ funcion: IFuncion }>, res: IRes) {
+  const { funcion } = req.body;
+  await FuncionService.addOne(funcion);
   return res.status(HttpStatusCodes.CREATED).end();
 }
 
 /**
  * Update one película.
  */
-async function update(req: IReq<{ pelicula: IPelicula }>, res: IRes) {
-  const { pelicula } = req.body;
-  await PeliculaService.updateOne(pelicula);
+async function update(req: IReq<{ funcion: IFuncion }>, res: IRes) {
+  const { funcion } = req.body;
+  await FuncionService.updateOne(funcion);
   return res.status(HttpStatusCodes.OK).end();
 }
 
@@ -38,7 +38,7 @@ async function update(req: IReq<{ pelicula: IPelicula }>, res: IRes) {
  */
 async function delete_(req: IReq, res: IRes) {
   const id = +req.params.id;
-  await PeliculaService.delete(id);
+  await FuncionService.delete(id);
   return res.status(HttpStatusCodes.OK).end();
 }
 
