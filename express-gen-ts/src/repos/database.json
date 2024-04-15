@@ -1,0 +1,48 @@
+{
+    "peliculas": [
+      {
+        "id": 987654321,
+        "nombre": "Titanic",
+        "duracion": 195
+      },
+      {
+        "id": 123456789,
+        "nombre": "Avatar",
+        "duracion": 162
+      },
+      {
+        "id": 456789123,
+        "nombre": "Jurassic Park",
+        "duracion": 127
+      }
+    ],
+    "funciones": [
+      {
+        "id": 1,
+        "pelicula": {
+          "id": 987654321,
+          "nombre": "Titanic",
+          "duracion": "195"
+        },
+        "sala": "Sala 1"
+      },
+      {
+        "id": 2,
+        "pelicula": {
+          "id": 123456789,
+          "nombre": "Avatar",
+          "duracion": "162"
+        },
+        "sala": "Sala 2"
+      },
+      {
+        "id": 3,
+        "pelicula": {
+          "id": 456789123,
+          "nombre": "Jurassic Park",
+          "duracion": "127"
+        },
+        "sala": "Sala 3"
+      }
+    ]
+  }
