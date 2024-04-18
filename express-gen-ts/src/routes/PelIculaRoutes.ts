@@ -8,6 +8,15 @@ import { IReq, IRes } from './types/express/misc';
 // **** Functions **** //
 
 /**
+ * Get one película.
+ */
+async function getOne(req: IReq, res: IRes) {
+  const id = +req.params.id;
+  const pelicula = await PeliculaService.getOne(id);
+  return res.status(HttpStatusCodes.OK).json(pelicula);
+}
+
+/**
  * Get all películas.
  */
 async function getAll(_: IReq, res: IRes) {
@@ -29,8 +38,8 @@ async function add(req: IReq<{ pelicula: IPelicula }>, res: IRes) {
  */
 async function update(req: IReq<{ pelicula: IPelicula }>, res: IRes) {
   const { pelicula } = req.body;
-  await PeliculaService.updateOne(pelicula);
-  return res.status(HttpStatusCodes.OK).end();
+   await PeliculaService.updateOne(pelicula);
+  return res.status(HttpStatusCodes.OK).end(); 
 }
 
 /**
@@ -46,6 +55,7 @@ async function delete_(req: IReq, res: IRes) {
 // **** Export default **** //
 
 export default {
+  getOne,
   getAll,
   add,
   update,

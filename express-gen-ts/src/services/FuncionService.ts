@@ -2,12 +2,21 @@ import FuncionRepo from '@src/repos/FuncionRepo';
 import { IFuncion } from '@src/models/Funcion';
 import { RouteError } from '@src/other/classes';
 import HttpStatusCodes from '@src/constants/HttpStatusCodes';
+import { IPelicula } from '@src/models/Pelicula';
 
 // **** Variables **** //
 
-export const PELICULA_NOT_FOUND_ERR = 'Pelicula not found';
+export const FUNCION_NOT_FOUND_ERR = 'Funcion not found';
 
 // **** Functions **** //
+
+/**
+ * Get all películas.
+ */
+function getOne(id: number): Promise<IFuncion | null> {
+  return FuncionRepo.getOne(id);
+}
+
 
 /**
  * Get all películas.
@@ -31,7 +40,7 @@ async function updateOne(pelicula: IFuncion): Promise<void> {
   if (!persists) {
     throw new RouteError(
       HttpStatusCodes.NOT_FOUND,
-      PELICULA_NOT_FOUND_ERR,
+      FUNCION_NOT_FOUND_ERR,
     );
   }
   // Return película
@@ -46,7 +55,7 @@ async function _delete(id: number): Promise<void> {
   if (!persists) {
     throw new RouteError(
       HttpStatusCodes.NOT_FOUND,
-      PELICULA_NOT_FOUND_ERR,
+      FUNCION_NOT_FOUND_ERR,
     );
   }
   // Delete película
@@ -56,6 +65,7 @@ async function _delete(id: number): Promise<void> {
 // **** Export default **** //
 
 export default {
+  getOne,
   getAll,
   addOne,
   updateOne,

@@ -4,8 +4,16 @@ import FuncionService from '@src/services/FuncionService';
 import { IFuncion } from '@src/models/Funcion';
 import { IReq, IRes } from './types/express/misc';
 
-
 // **** Functions **** //
+
+/**
+ * Get one película.
+ */
+async function getOne(req: IReq, res: IRes) {
+  const id = +req.params.id;
+  const pelicula = await FuncionService.getOne(id);
+  return res.status(HttpStatusCodes.OK).json(pelicula);
+}
 
 /**
  * Get all películas.
@@ -46,6 +54,7 @@ async function delete_(req: IReq, res: IRes) {
 // **** Export default **** //
 
 export default {
+  getOne,
   getAll,
   add,
   update,

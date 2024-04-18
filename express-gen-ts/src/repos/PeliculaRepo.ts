@@ -20,14 +20,14 @@ async function getOne(nombre: string): Promise<IPelicula | null> {
 /**
  * See if a película with the given id exists.
  */
-async function persists(id: number): Promise<boolean> {
+async function persists(id: number): Promise<IPelicula | null> {
   const db = await orm.openDb();
   for (const pelicula of db.peliculas) {
-    if (pelicula.id === id) {
-      return true;
+    if (pelicula.id == id) {
+      return pelicula;
     }
   }
-  return false;
+  return null;
 }
 
 /**

@@ -7,7 +7,6 @@ import Funcion from '@src/models/Funcion';
 import PelIculaRoutes from './PelIculaRoutes';
 import FuncionRoutes from './FuncionRoutes';
 
-
 // **** Variables **** //
 
 const apiRouter = Router(),
@@ -17,6 +16,12 @@ const apiRouter = Router(),
 // ** Add peliculaRouter ** //
 
 const peliculaRouter = Router();
+
+// Get one Peliculas
+peliculaRouter.get(
+  Paths.Peliculas.GetOne,
+  PelIculaRoutes.getOne
+)
 
 // Get all Peliculas
 peliculaRouter.get(
@@ -34,20 +39,24 @@ peliculaRouter.post(
 // Update one user
 peliculaRouter.put(
   Paths.Peliculas.Update,
-  validate(['pelicula', Pelicula.isPelicula]),
   PelIculaRoutes.update,
 );
 
 // Delete one user
 peliculaRouter.delete(
   Paths.Peliculas.Delete,
-  validate(['id']),
   PelIculaRoutes.delete,
 );
 
 // ** Add funcionRouter ** //
 
 const funcionRouter = Router();
+
+// Get one Funcion
+funcionRouter.get(
+  Paths.Peliculas.Funciones.GetOne,
+  FuncionRoutes.getOne
+)
 
 // Get all Funciones
 funcionRouter.get(
@@ -58,22 +67,19 @@ funcionRouter.get(
 // Add one Funcion
 funcionRouter.post(
   Paths.Peliculas.Funciones.Add,
-  validate(['funcion', Funcion.isFuncion]),
   FuncionRoutes.add,
 );
 
 // Update one Funcion
 funcionRouter.put(
   Paths.Peliculas.Funciones.Update,
-  validate(['funcion', Funcion.isFuncion]),
   FuncionRoutes.update,
 );
 
 // Delete one Funcion
 funcionRouter.delete(
   Paths.Peliculas.Funciones.Delete,
-  validate(['id']),
-  PelIculaRoutes.delete,
+  FuncionRoutes.delete,
 );
 
 
@@ -82,7 +88,7 @@ apiRouter.use(Paths.Peliculas.Base, peliculaRouter);
 
 
 // Add funcionRouter
-peliculaRouter.use(Paths.Peliculas.Funciones.Base, funcionRouter);
+apiRouter.use(Paths.Peliculas.Funciones.Base, funcionRouter);
 
 
 // **** Export default **** //

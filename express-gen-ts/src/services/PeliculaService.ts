@@ -9,6 +9,14 @@ export const PELICULA_NOT_FOUND_ERR = 'Pelicula not found';
 
 // **** Functions **** //
 
+
+/**
+ * Get one película.
+ */
+function getOne(id: number): Promise<IPelicula | null> {
+  return PeliculaRepo.persists(id);
+}
+
 /**
  * Get all películas.
  */
@@ -56,6 +64,7 @@ async function _delete(id: number): Promise<void> {
 // **** Export default **** //
 
 export default {
+  getOne,
   getAll,
   addOne,
   updateOne,

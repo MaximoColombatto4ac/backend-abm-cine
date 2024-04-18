@@ -10,14 +10,14 @@ export default {
     Get: '/',
     GetOne: '/:id',
     Add: '/',
-    Update: '/:id',
+    Update: '/',
     Delete: '/:id',
    Funciones: {
       Base: '/funciones',
       Get: '/',
       GetOne: '/:id',
       Add: '/',
-      Update: '/:id',
+      Update: '/',
       Delete: '/:id',
     }
   },

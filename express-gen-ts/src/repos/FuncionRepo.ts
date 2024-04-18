@@ -8,10 +8,10 @@ import orm from './MockOrm';
 /**
  * Get one película.
  */
-async function getOne(pelicula: IPelicula): Promise<IFuncion | null> {
+async function getOne(id: number): Promise<IFuncion | null> {
   const db = await orm.openDb();
   for (const funcion of db.funciones) {
-    if (funcion.pelicula === pelicula) {
+    if (funcion.id == id) {
       return funcion;
     }
   }
@@ -24,7 +24,7 @@ async function getOne(pelicula: IPelicula): Promise<IFuncion | null> {
 async function persists(id: number): Promise<boolean> {
   const db = await orm.openDb();
   for (const funcion of db.funciones) {
-    if (funcion.id === id) {
+    if (funcion.id == id) {
       return true;
     }
   }
